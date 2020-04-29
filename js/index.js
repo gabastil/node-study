@@ -8,4 +8,5 @@ var $ = require('jquery');
 
 console.log("Hello World")
 
-$.getJSON();
+console.log($);
+$
