@@ -3,6 +3,8 @@
 var http = require("http");
 var fs = require("fs");
 
+var host = "127.0.0.1", port = 8081;
+
 http.createServer(function (reader, response){
 	// Send the HTTP header
 	// HTTP Status : 200 : OK
@@ -13,14 +15,14 @@ http.createServer(function (reader, response){
 	response.end('Hello World\n');
 
 
-	console.log("Attempt next part");
+	console.log(`${'-'.repeat(10)}\nOpen a file`);
 
 	fs.readFile('py/index.py', function (err, data){
 		if (err) return console.error(err);
 		console.log(data.toString());
 	});
 
-	console.log("Program Ended");
-}).listen(8081);
-
-console.log("Server set up on http://127.0.0.1:8081");
+	console.log("Program Ended again?");
+}).listen(port, () =>{
+		console.log(`Server set up on http://${host}:${port}`);
+});
